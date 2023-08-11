@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap");
+      html {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-950 text-white text-sm">
+    <div
+      id="sideMenu"
+      class="sideMenu hidden w-64 bg-blue-900 h-full absolute p-4 -right-64"
+    >
+      <div class="flex flex-col gap-4">
+        <div class="flex justify-between">
+          <span>Eventos</span
+          ><span id="close"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#FFFFFF"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </div>
+        <div>Apostas</div>
+        <div>Regulamento</div>
+        <div>Meu Perfil</div>
+      </div>
+    </div>
+    <!-- Versão MOBILE -->
+    <header
+      class="flex items-center justify-between px-6 md:hidden bg-zinc-900"
+    >
+      <div>
+        <img src="assets/logo.png" alt="" />
+      </div>
+      <div>
+        <p class="font-bold">Minha carteira</p>
+        <p class="font-bold text-lime-600">R$ 1.000,00</p>
+      </div>
+      <div id="menu">
+        <img src="assets/menu.svg" alt="" />
+      </div>
+    </header>
+    <!-- Versão TABLET para CIMA-->
+    <header
+      class="hidden h-20 bg-zinc-900 md:flex items-center justify-between px-3"
+    >
+      <div>
+        <img src="assets/logo.png" alt="" />
+      </div>
+      <nav class="font-bold text-xs flex md:gap-2 lg:gap-10">
+        <span>Eventos</span>
+        <img src="assets/arrow.svg" alt="" />
+        <span>Apostas</span>
+        <img src="assets/arrow.svg" alt="" />
+        <span>Meu Perfil</span>
+        <img src="assets/arrow.svg" alt="" />
+        <span>Regulamento</span>
+      </nav>
+      <div>
+        <p class="font-bold">Minha carteira</p>
+        <p class="font-bold text-lime-600">R$ 1.000,00</p>
+      </div>
+      <div class="flex gap-3">
+        <div><img src="assets/foto.png" alt="" /></div>
+        <div>
+          <p>Olá, <strong> Thiago</strong></p>
+          <p class="text-xs">Hoje é dia de vitória!</p>
+        </div>
+      </div>
+      <div><img src="assets/log-out.png" alt="" /></div>
+    </header>
+    <main>
+      <section
+        id="container-filter"
+        class="h-32 md:h-16 flex flex-col md:flex-row justify-center md:justify-between px-10 items-center"
+      >
+        <div class="hidden md:flex items-center gap-2">
+          Filtre seus eventos:
+          <div class="text-black text-xs">
+            <select id="city" name="city" required class="rounded-sm h-6">
+              <option value="curitiba">Curitiba</option>
+              <option value="rio de janeiro">Rio de Janeiro</option>
+              <option value="assuncion">Assuncion</option>
+              <option value="são paulo">São Paulo</option>
+            </select>
+            <select
+              id="type-fight"
+              name="type-fight"
+              required
+              class="rounded-sm h-6"
+            >
+              <option value="MMA">MMA</option>
+              <option value="JJ">JJ</option>
+              <option value="Greco">Greco</option>
+              <option value="Malokothay">Malakothay</option>
+            </select>
+            <select id="month" name="month" required class="rounded-sm h-6">
+              <option value="Agosto/2023">Agosto/2023</option>
+              <option value="Setembro/2023">Setembro/2023</option>
+              <option value="Outubro/2023">Outubro/2023</option>
+              <option value="Novembro/2023">Novembro/2023</option>
+            </select>
+          </div>
+        </div>
+        <div class="text-base md:text-base font-bold">
+          Total de lutas programadas: <span class="text-lime-600">3 lutas</span>
+        </div>
+        <div class="mt-2 md:hidden flex justify-center">
+          <button class="bg-blue-800 p-4 rounded-md">Filtrar Eventos</button>
+        </div>
+      </section>
+      <section id="container-events" class="flex justify-center pb-20 gap-10">
+        <section id="card-event" class="bg-zinc-900">
+          <div id="photo-event"><img src="assets/event-01.jpg" alt="" /></div>
+          <div id="infos-event" class="p-4">
+            <div class="text-base font-bold">Braga Pro Show Time</div>
+            <div class="text-base font-bold mb-3">
+              <span class="font-bold text-yellow-500">Data:</span> 10/12/2022
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Local:</span> Circulo
+              Militar - Curitiba/PR
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Lutas:</span> 10 lutas
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Apostas:</span> 56 apostas
+              (R$ 10.150)
+            </div>
+            <div class="mt-3">
+              <span class="font-bold text-cyan-500">Limite para Aposta:</span>
+              22 dias e 22:54:55
+            </div>
+          </div>
+          <div id="actions-button" class="flex gap-1">
+            <button class="bg-rose-600 w-1/2 py-2">Mais informações</button>
+            <button class="bg-lime-600 w-1/2 py-2">Apostar</button>
+          </div>
+        </section>
+        <section id="card-event" class="bg-zinc-900 hidden md:flex md:flex-col">
+          <div id="photo-event"><img src="assets/event-02.jpg" alt="" /></div>
+          <div id="infos-event" class="p-4">
+            <div class="text-base font-bold">Imortal FC 2</div>
+            <div class="text-base font-bold mb-3">
+              <span class="font-bold text-yellow-500">Data:</span> 10/12/2022
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Local:</span> Circulo
+              Militar - Curitiba/PR
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Lutas:</span> 10 lutas
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Apostas:</span> 56 apostas
+              (R$ 10.150)
+            </div>
+            <div class="mt-3">
+              <span class="font-bold text-cyan-500">Limite para Aposta:</span>
+              22 dias e 22:54:55
+            </div>
+          </div>
+          <div id="actions-button" class="flex gap-1">
+            <button class="bg-rose-600 w-1/2 py-2">Mais informações</button>
+            <button class="bg-lime-600 w-1/2 py-2">Apostar</button>
+          </div>
+        </section>
+        <section id="card-event" class="bg-zinc-900 hidden lg:flex lg:flex-col">
+          <div id="photo-event"><img src="assets/event-03.jpg" alt="" /></div>
+          <div id="infos-event" class="p-4">
+            <div class="text-base font-bold">Thunder Fight 4</div>
+            <div class="text-base font-bold mb-3">
+              <span class="font-bold text-yellow-500">Data:</span> 10/12/2022
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Local:</span> Circulo
+              Militar - Curitiba/PR
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Lutas:</span> 10 lutas
+            </div>
+            <div>
+              <span class="font-bold text-yellow-500">Apostas:</span> 56 apostas
+              (R$ 10.150)
+            </div>
+            <div class="mt-3">
+              <span class="font-bold text-cyan-500">Limite para Aposta:</span>
+              22 dias e 22:54:55
+            </div>
+          </div>
+          <div id="actions-button" class="flex gap-1">
+            <button class="bg-rose-600 w-1/2 py-2">Mais informações</button>
+            <button class="bg-lime-600 w-1/2 py-2">Apostar</button>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script>
+      $("#menu").click(function () {
+        // $("#sideMenu").animate({ width: "toggle" });
+        $("#sideMenu").show().animate({ right: "0" }, 500);
+      });
+      $("#close").click(function () {
+        // $("#sideMenu").animate({ width: "toggle" });
+        $("#sideMenu").animate({ right: "-100%" }, 500, function () {
+          $(this).hide();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      .minha-borda {
+        border-top-width: 1px;
+      }
+    </style>
+  </head>
+  <body class="flex h-screen text-white bg-zinc-900 justify-center">
+    <div
+      id="toast"
+      class="hidden absolute bg-lime-700 text-white p-2 rounded-md top-4 right-4 opacity-0"
+    >
+      Login efetuado!
+    </div>
+    <aside
+      class="hidden md:flex md:w-1/2 lg:w-2/3 h-full"
+      style="
+        background-image: url(assets/lutadores.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      "
+    ></aside>
+    <main class="md:w-1/2 lg:w-1/3 h-full flex flex-col items-center pt-10">
+      <section id="logo" class="flex justify-center">
+        <img src="assets/logog.png" alt="" />
+      </section>
+      <section id="welcome-text" class="text-center px-20">
+        Entre para a maior comunidade de lutas amadoras do Brasil!
+      </section>
+      <section
+        id="form"
+        class="w-full md:w-2/3 flex flex-col gap-4 mt-4 p-4 md:p-0"
+      >
+        <div id="input-email" class="flex flex-col">
+          <label for="email" class="mb-2">Email</label>
+          <input type="email" class="bg-zinc-800 h-10 rounded-md px-3" />
+        </div>
+        <div id="input-password" class="flex flex-col">
+          <label for="password" class="mb-2">Password</label>
+          <input type="password" class="bg-zinc-800 h-10 rounded-md px-3" />
+        </div>
+        <div id="forgot" class="text-right">Esqueci minha senha</div>
+        <div
+          id="submit"
+          class="bg-blue-900 py-3 text-center font-bold text-sm rounded-md cursor-pointer"
+        >
+          Entrar
+        </div>
+        <div id="separator" class="grid grid-cols-3">
+          <div
+            id="line-separator"
+            class="mt-2 minha-borda border-t-slate-300"
+          ></div>
+          <div id="enter-with" class="font-semibold text-xs text-center">
+            Ou entre com
+          </div>
+          <div
+            id="line-separator"
+            class="minha-borda mt-2 border-t-slate-300"
+          ></div>
+        </div>
+        <div id="social-buttons" class="flex gap-2">
+          <button
+            id="google"
+            class="bg-zinc-700 flex gap-2 flex-grow justify-center items-center p-2 rounded-md"
+          >
+            <img src="assets/google-icon.svg" alt="" />Google
+          </button>
+          <button
+            id="apple"
+            class="bg-zinc-700 flex gap-2 flex-grow justify-center items-center p-2 rounded-md"
+          >
+            <img src="assets/apple-icon.svg" alt="" />Apple
+          </button>
+        </div>
+      </section>
+      <section id="footer" class="mt-10">
+        Novo no Fight Play?
+        <a
+          href="cadastro.html"
+          target="_self"
+          class="font-semibold text-yellow-500"
+          >Crie uma conta</a
+        >
+      </section>
+    </main>
+    <script>
+      $("#submit").click(function () {
+        // $("#sideMenu").animate({ width: "toggle" });
+        $("#toast").show().animate({ opacity: 1 }, 500);
+        // $("#toast").show();
+        $("#toast").fadeOut(1100)
+      });
+    </script>
+  </body>
+</html>
